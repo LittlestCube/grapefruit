@@ -31,6 +31,6 @@ else
 	echo "E: invalid argument or arguments"
 	echo "usage: grfr [split OR join] [name of .iso]"
 	echo ""
-	echo "tip: my code is not perfect, so it might be best to do all this in a new folder"
+	echo "tip: it might be best to do all this in a new folder"
 	echo "~~~~"
 fi
