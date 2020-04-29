@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # grfr.sh
 
 if [ "$1" == "split" ]
@@ -12,14 +14,19 @@ then
 	echo "I: ISO successfully split!"
 elif [ "$1" == "join" ]
 then
-	touch "$2"
 	inc=0
 	while (true)
 	do
 		fname="$2"."$inc"
+		if ls "$2" 2>/dev/null
+		then
+			of="$2".new
+		else
+			of="$2"
+		fi
 		if ls "$fname" 2>/dev/null
 		then
-			cat "$2"."$inc" >> "$2"
+			cat "$2"."$inc" >> "$of"
 		else
 			break
 		fi
