@@ -4,14 +4,18 @@
 
 if [ "$1" == "split" ]
 then
-	split -b 4294967294 "$2"
-	inc=0
-	for i in x??
-	do
-		mv "$i" "$2".$inc
-		inc=$((inc+1))
-	done
-	echo "I: ISO successfully split!"
+	if split -b 4294967294 "$2"
+	then
+		inc=0
+		for i in x??
+		do
+			mv "$i" "$2".$inc
+			inc=$((inc+1))
+		done
+		echo "I: ISO successfully split!"
+	else
+		echo "E: split returned error."
+	fi
 elif [ "$1" == "join" ]
 then
 	inc=0
