@@ -37,7 +37,13 @@ then
 		then
 			cat "$2"."$inc" >> "$of"
 		else
-			break
+			if [ "$inc" -eq 0 ]
+			then
+				echo "E: file not found."
+				exit
+			else
+				break
+			fi
 		fi
 		
 		inc=$((inc+1))
